@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class exercicio4{
+public class exercicio3{
 
 
     public static int mochilaMaxValor(int[] pesos, int[] valores, int capacidade) {
