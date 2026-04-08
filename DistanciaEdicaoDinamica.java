@@ -25,19 +25,19 @@ public class DistanciaEdicaoDinamica{
     public static int distEdProgDina(String a, String b){
         int m = a.length();
         int n = b.length();
-        int [] [] matriz = new int [m][n];
+        int [] [] matriz = new int [m+1][n+1];
         matriz[0][0] = 0;
         int custoExtra = 0;
-        for (int i = 1;i<m;i++){
+        for (int i = 1;i<m+1;i++){
             matriz[i][0] = matriz[i-1][0]+1;
         }
-        for (int i = 1;i<n;i++){
+        for (int i = 1;i<n+1;i++){
             matriz[0][i] = matriz[0][i-1]+1;
         }
-        for (int i = 1;i<m;i++){
-            for (int j = 1; j < n; j++) {
+        for (int i = 1;i<m+1;i++){
+            for (int j = 1; j < n+1; j++) {
                 it++;
-                if(a.charAt(i)==b.charAt(j)){
+                if(a.charAt(i-1)==b.charAt(j-1)){
                     custoExtra =0;
                 }
                 else{
@@ -46,6 +46,7 @@ public class DistanciaEdicaoDinamica{
                 matriz[i][j] = Math.min(matriz[i-1][j]+1, Math.min(matriz[i][j-1]+1,matriz[i-1][j-1]+custoExtra));
             }
         }
-        return matriz[m-1][n-1];
+
+        return matriz[m][n];
     }
 }
